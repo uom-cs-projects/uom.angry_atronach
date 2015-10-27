@@ -14,4 +14,13 @@ class TYPServlet extends ThirdYearProjectStack {
     </html>
   }
 
+  get("/resource/view") {
+    <html>
+      <body>
+        <h1>Resource Name</h1>
+        Resource content.
+      </body>
+    </html>
+  }
+
 }
