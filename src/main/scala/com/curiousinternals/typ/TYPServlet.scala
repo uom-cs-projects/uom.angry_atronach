@@ -3,24 +3,14 @@ package com.curiousinternals.typ
 import org.scalatra._
 import scalate.ScalateSupport
 
-class TYPServlet extends ThirdYearProjectStack {
-
-  get("/") {
-    <html>
-      <body>
-        <h1>Hello, world!</h1>
-        Say <a href="hello-scalate">hello to Scalate</a>.
-      </body>
-    </html>
-  }
+class TYPServlet extends ThirdYearProjectStack with ScalateSupport {
 
   get("/resource/view") {
-    <html>
-      <body>
-        <h1>Resource Name</h1>
-        Resource content.
-      </body>
-    </html>
+    contentType="text/html"
+    jade("resource/read",
+        "title" -> "Resource Viewer",
+        "resource_name" -> "Test Resource Name",
+        "resource_data" -> "# Heading\n\nSome markdown content.")
   }
 
 }
