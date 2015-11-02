@@ -29,7 +29,9 @@ object ThirdYearProjectBuild extends Build {
         "ch.qos.logback" % "logback-classic" % "1.1.2" % "runtime",
         "org.eclipse.jetty" % "jetty-webapp" % "9.2.10.v20150310" % "container",
         "javax.servlet" % "javax.servlet-api" % "3.1.0" % "provided",
-        "org.fusesource.scalamd" % "scalamd_2.10" % "1.6"
+        "org.fusesource.scalamd" % "scalamd_2.10" % "1.6",
+        "org.squeryl" %% "squeryl" % "0.9.5-7",
+        "mysql" % "mysql-connector-java" % "5.1.10"
       ),
       scalateTemplateConfig in Compile <<= (sourceDirectory in Compile){ base =>
         Seq(
