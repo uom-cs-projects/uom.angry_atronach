@@ -8,6 +8,21 @@ class TYPServlet extends ThirdYearProjectStack
     with ScalateSupport
     with DatabaseSessionSupport {
 
+  get("/resource/delete/:id") {
+
+    val id: Long = {
+      try { params("id").toLong }
+      catch { case e: Exception => halt(400) }
+    }
+
+    transaction {
+      TYPDB.resources.deleteWhere(r => r.id === id)
+    }
+
+    Ok(s"id:'${id}' deleted.")
+
+  }
+
   get("/resource/read/:id") {
 
     contentType="text/html"
