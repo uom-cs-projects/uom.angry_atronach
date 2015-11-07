@@ -8,7 +8,7 @@ class TYPServlet extends ThirdYearProjectStack
     with ScalateSupport
     with DatabaseSessionSupport {
 
-  get("/resource/view/:id") {
+  get("/resource/read/:id") {
 
     contentType="text/html"
 
@@ -31,6 +31,26 @@ class TYPServlet extends ThirdYearProjectStack
 
       case None => NotFound(s"Resource '${id}' was not found.")
     }
+
+  }
+
+  get("/resource/create") {
+
+    contentType="text/html"
+    jade("resource/create", "title" -> "Create Resource")
+
+  }
+
+  post("/resource/create") {
+
+    val content: String = params.getOrElse("content", halt(400))
+
+    val id = {
+      transaction { TYPDB.resources.insert(new Resource(0, content)) }.id
+    }
+
+    redirect(s"/resource/read/${id}")
+
   }
 
   get("/dev/createDB") {
