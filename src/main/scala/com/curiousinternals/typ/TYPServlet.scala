@@ -8,38 +8,39 @@ class TYPServlet extends ThirdYearProjectStack
     with ScalateSupport
     with DatabaseSessionSupport {
 
-  get("/resource/view") {
+  get("/resource/view/:id") {
+
     contentType="text/html"
-    jade("resource/read",
-        "title" -> "Resource Viewer",
-        "resource_name" -> "Test Resource Name",
-        "resource_data" -> "# Heading\n\nSome markdown content.")
+
+    val id: Long = {
+      try { params("id").toLong }
+      catch { case e: Exception => halt(400) }
+    }
+
+    var resource : Option[Resource] = {
+      transaction {
+        TYPDB.resources.where(r => r.id === id).headOption
+  	  }
+    }
+
+    resource match {
+      case Some(resource) =>
+        jade("resource/read",
+            "title" -> "Resource Viewer",
+            "resource_data" -> resource.content)
+
+      case None => NotFound(s"Resource '${id}' was not found.")
+    }
   }
 
-  get("/utilities/createDB") {
+  get("/dev/createDB") {
     transaction {
       TYPDB.create
       TYPDB.resources.insert(
           new Resource(0, "# Stored Resource\n\nSome markdown."))
 	  }
-    <html>
-      <body>
-        <p>Database Created</p>
-      </body>
-    </html>
-  }
 
-  get("/persistent/resource/view/:id") {
-    transaction {
-      val r: Resource = TYPDB.resources.where(
-          resource => resource.id === params("id").toLong).single
-
-      contentType="text/html"
-      jade("resource/read",
-        "title" -> "Persistent Resource Viewer",
-        "resource_name" -> s"Persistent Resource ${r.id}",
-        "resource_data" -> r.content)
-	  }
+    Ok("Database Created!")
   }
 
 }
