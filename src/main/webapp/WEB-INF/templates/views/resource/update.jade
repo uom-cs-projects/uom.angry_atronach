@@ -1,0 +1,7 @@
+-@ val resource_data: String
+
+.resource
+  form(method = 'post')
+    textarea(name = 'content' rows = '10' cols = '100')><
+      | #{resource_data}
+    input(type = 'submit' value = 'Update')
