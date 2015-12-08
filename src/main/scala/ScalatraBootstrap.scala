@@ -8,7 +8,7 @@ class ScalatraBootstrap extends LifeCycle with DatabaseInit {
     context.mount(new TYPServlet, "/*")
   }
 
-  override def destroy(context:ServletContext) {
+  override def destroy(context: ServletContext) {
     closeDbConnection()
   }
 }

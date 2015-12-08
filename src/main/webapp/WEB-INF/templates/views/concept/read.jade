@@ -1,0 +1,24 @@
+-@ val concept_id: String
+-@ val concept_name: String
+- val canonical_concept_url = "/concept/read/" + concept_id
+
+.concept
+  h1
+    span.concept_name= concept_name
+    a.concept_id(href=canonical_concept_url) #{concept_id}
+  
+  h2 Resources
+  ul
+    li
+      a.concept_id(href='/resource/read/54ef') 54ef
+    li
+      a.concept_id(href='/resource/read/6a7') 6a7
+  
+  h2 Dependends On
+  ul
+    li Algorithms I
+    li Algorithms II
+  
+  h2 Required For
+  ul
+    li Advanced Algorithms II

@@ -8,6 +8,17 @@ class TYPServlet extends ThirdYearProjectStack
     with ScalateSupport
     with DatabaseSessionSupport {
 
+  get("/concept/read/:id") {
+
+    val id = params("id")
+
+    contentType="text/html"
+    jade("concept/read",
+        "title" -> "Advanced Algorithms",
+        "concept_id" -> id,
+        "concept_name" -> "Advanced Algorithms")
+  }
+
   get("/resource/update/:id") {
 
     val id: Long = {

@@ -10,7 +10,7 @@ import collection.mutable
 trait ThirdYearProjectStack extends ScalatraServlet with ScalateSupport {
 
   notFound {
-    resourceNotFound()
+    serveStaticResource() getOrElse resourceNotFound()
   }
 
 }
