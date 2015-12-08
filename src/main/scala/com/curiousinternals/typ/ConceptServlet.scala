@@ -2,19 +2,22 @@ package com.curiousinternals.typ
 
 import org.scalatra._
 import scalate.ScalateSupport
+import org.scalatra.scalate.ScalateUrlGeneratorSupport
 
-class ConceptServlet extends ThirdYearProjectStack
-    with ScalateSupport {
+import com.curiousinternals.typ.model._
 
-  get("/read/:id") {
+class ConceptServlet extends ThirdYearProjectStack {
 
-    val id = params("id")
+  val readConcept = get("/read/:id") {
+
+    val id = params("id").toLong
+
+    val concept = new Concept(id, "Advanced Algorithms")
 
     contentType="text/html"
     jade("concept/read",
-        "title" -> "Advanced Algorithms",
-        "concept_id" -> id,
-        "concept_name" -> "Advanced Algorithms")
+        "title" -> s"${concept.name} : Concept",
+        "concept" -> concept)
   }
 
 }

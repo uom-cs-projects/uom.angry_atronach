@@ -7,7 +7,8 @@ import org.fusesource.scalate.layout.DefaultLayoutStrategy
 import javax.servlet.http.HttpServletRequest
 import collection.mutable
 
-trait ThirdYearProjectStack extends ScalatraServlet with ScalateSupport {
+trait ThirdYearProjectStack extends ScalatraServlet
+    with ScalateSupport {
 
   notFound {
     serveStaticResource() getOrElse resourceNotFound()

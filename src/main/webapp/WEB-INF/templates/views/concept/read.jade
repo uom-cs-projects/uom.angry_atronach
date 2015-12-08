@@ -1,18 +1,17 @@
--@ val concept_id: String
--@ val concept_name: String
-- val canonical_concept_url = "/concept/read/" + concept_id
+- import com.curiousinternals.typ.model.Concept
+-@ val concept: Concept
 
 .concept
   h1
-    span.concept_name= concept_name
-    a.concept_id(href=canonical_concept_url) #{concept_id}
+    span.concept_name= concept.name
+    a.concept_id(href='/concept/read/#{concept.id}') #{concept.id}
   
   h2 Resources
   ul
     li
-      a.concept_id(href='/resource/read/54ef') 54ef
+      a.concept_id(href='/resource/read/#{"54ef"}') 54ef
     li
-      a.concept_id(href='/resource/read/6a7') 6a7
+      a.concept_id(href='/resource/read/#{"6a7"}') 6a7
   
   h2 Dependends On
   ul

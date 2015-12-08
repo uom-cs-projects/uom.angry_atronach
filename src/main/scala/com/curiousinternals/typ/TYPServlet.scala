@@ -5,7 +5,6 @@ import scalate.ScalateSupport
 import org.squeryl.PrimitiveTypeMode._
 
 class TYPServlet extends ThirdYearProjectStack
-    with ScalateSupport
     with DatabaseSessionSupport {
 
   get("/resource/update/:id") {
