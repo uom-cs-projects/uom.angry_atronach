@@ -1,4 +1,4 @@
-name := """play-getting-started"""
+name := """angry-atronach"""
 
 version := "1.0-SNAPSHOT"
 
