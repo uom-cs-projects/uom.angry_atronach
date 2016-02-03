@@ -1,12 +1,12 @@
-package com.curiousinternals.typ
+package com.curiousinternals.angry_atronach
 
 import org.scalatra._
 import scalate.ScalateSupport
 import org.scalatra.scalate.ScalateUrlGeneratorSupport
 
-import com.curiousinternals.typ.model._
+import com.curiousinternals.angry_atronach.model._
 
-class ConceptServlet extends ThirdYearProjectStack {
+class ConceptServlet extends AngryAtronachStack {
 
   val readConcept = get("/read/:id") {
 

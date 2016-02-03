@@ -1,4 +1,4 @@
-package com.curiousinternals.typ
+package com.curiousinternals.angry_atronach
 
 import org.scalatra.test.specs2._
 

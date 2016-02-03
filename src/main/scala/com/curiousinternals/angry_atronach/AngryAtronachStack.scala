@@ -1,4 +1,4 @@
-package com.curiousinternals.typ
+package com.curiousinternals.angry_atronach
 
 import org.scalatra._
 import scalate.ScalateSupport
@@ -7,7 +7,7 @@ import org.fusesource.scalate.layout.DefaultLayoutStrategy
 import javax.servlet.http.HttpServletRequest
 import collection.mutable
 
-trait ThirdYearProjectStack extends ScalatraServlet
+trait AngryAtronachStack extends ScalatraServlet
     with ScalateSupport {
 
   notFound {

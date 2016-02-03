@@ -1,4 +1,4 @@
-package com.curiousinternals.typ.model
+package com.curiousinternals.angry_atronach.model
 
 import java.util.TreeSet
 

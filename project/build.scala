@@ -5,15 +5,15 @@ import org.scalatra.sbt.PluginKeys._
 import com.mojolly.scalate.ScalatePlugin._
 import ScalateKeys._
 
-object ThirdYearProjectBuild extends Build {
+object AngryAtronachBuild extends Build {
   val Organization = "com.curiousinternals"
-  val Name = "Third Year Project"
+  val Name = "Angry Atronach"
   val Version = "0.1.0-SNAPSHOT"
   val ScalaVersion = "2.11.6"
   val ScalatraVersion = "2.4.0.RC3"
 
   lazy val project = Project (
-    "third-year-project",
+    "angry-atronach",
     file("."),
     settings = ScalatraPlugin.scalatraSettings ++ scalateSettings ++ Seq(
       organization := Organization,

@@ -1,10 +1,10 @@
-package com.curiousinternals.typ
+package com.curiousinternals.angry_atronach
 
 import org.scalatra._
 import scalate.ScalateSupport
 import org.squeryl.PrimitiveTypeMode._
 
-class TYPServlet extends ThirdYearProjectStack
+class TempServlet extends AngryAtronachStack
     with DatabaseSessionSupport {
 
   get("/resource/update/:id") {

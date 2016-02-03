@@ -1,9 +1,9 @@
-# Third Year Project #
+# angry-atronach
 
-## Build & Run ##
+## Build & Run
 
 ```sh
-$ cd Third_Year_Project
+$ cd angry-atronach
 $ ./sbt
 > container:start
 > browse

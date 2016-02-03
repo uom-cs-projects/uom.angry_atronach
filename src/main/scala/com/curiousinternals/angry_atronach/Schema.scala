@@ -1,4 +1,4 @@
-package com.curiousinternals.typ
+package com.curiousinternals.angry_atronach
 
 import org.squeryl.PrimitiveTypeMode._
 import org.squeryl.{KeyedEntity, Schema}
