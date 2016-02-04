@@ -13,6 +13,10 @@ object Application extends Controller {
     Ok(views.html.index())
   }
 
+  def resource(id: String) = Action {
+    Ok(views.html.resource.read(id.toLong))
+  }
+
   def db = Action {
     var out = ""
     val conn = DB.getConnection()
