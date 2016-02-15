@@ -10,6 +10,7 @@ libraryDependencies ++= Seq(
   jdbc,
   cache,
   "org.postgresql" % "postgresql" % "9.4-1201-jdbc41",
+  "org.neo4j" % "neo4j-ogm" % "1.1.3",
   ws
 )
 
