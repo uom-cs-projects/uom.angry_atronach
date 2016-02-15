@@ -7,6 +7,10 @@ import play.api.Play.current
 
 import play.api.db._
 
+import domain._
+import repositories.Neo4jSessionFactory
+import org.neo4j.ogm.session.transaction.Transaction
+
 object Application extends Controller {
 
   def index = Action {
@@ -18,22 +22,19 @@ object Application extends Controller {
   }
 
   def db = Action {
-    var out = ""
-    val conn = DB.getConnection()
+    val user = new User("curiousinternals")
+
+    val session = Neo4jSessionFactory.getNeo4jSession()
+    val tx: Transaction = session.beginTransaction()
+
     try {
-      val stmt = conn.createStatement
-
-      stmt.executeUpdate("CREATE TABLE IF NOT EXISTS ticks (tick timestamp)")
-      stmt.executeUpdate("INSERT INTO ticks VALUES (now())")
-
-      val rs = stmt.executeQuery("SELECT tick FROM ticks")
-
-      while (rs.next) {
-        out += "Read from DB: " + rs.getTimestamp("tick") + "\n"
-      }
-    } finally {
-      conn.close()
+      session.save(user)
+      tx.commit()
+    } catch {
+      case e: Exception => tx.rollback()
     }
-    Ok(out)
+
+
+    Ok("User saved?")
   }
 }
