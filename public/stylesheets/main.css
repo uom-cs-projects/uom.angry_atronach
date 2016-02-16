@@ -18,6 +18,9 @@
 .concept-header h1 {
   font-size: 2em;
 }
+.concept-header .uuid {
+  font-size: 50%;
+}
 .navbar + .concept-header {
   margin-top: -20px;
 }
