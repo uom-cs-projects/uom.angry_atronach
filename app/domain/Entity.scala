@@ -5,6 +5,6 @@ import org.neo4j.ogm.annotation.GraphId
 abstract class Entity {
 
   @GraphId
-  var id: java.lang.Long = _
+  var internalId: java.lang.Long = _
 
 }

@@ -1,14 +1,14 @@
-@(id: Long)
+@(id: String, title: String, content: String)
 
 @main("Concept Name") {
 
 <div class="concept-header">
   <div class="container">
-    <h1>Concept Name (@id)</h1>
+    <h1>@title <a href="@id" class="uuid">(@id)</a></h1>
   </div>
 </div>
 <div class="container">
-  <p>Example content...</p>
+  <p>@content</p>
 </div>
 <div class="align-bottom">
   <div class="concept-prerequisites">
