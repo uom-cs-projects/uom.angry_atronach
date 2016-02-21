@@ -4,7 +4,6 @@
 
 # Home page
 GET     /                         controllers.Application.index
-GET     /db                       controllers.Application.db
 
 # Resources
 GET     /resource/read/:uuid      controllers.ResourceController.resource(uuid)

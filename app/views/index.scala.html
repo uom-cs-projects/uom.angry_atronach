@@ -1,3 +1,11 @@
+@import domain.Resource
+@import java.util.Collection
+@(resources: Collection[Resource])
+
+@linkedResource(r: Resource) = {
+  <li><a href="/resource/read/@r.uuid">@r.title (@r.uuid)</a></li>
+}
+
 @main("angry-atronach") {
 
 <div class="jumbotron text-center">
@@ -7,10 +15,21 @@
 </div>
 <div class="container">
   <h1>Concepts</h1>
-  <ul>
-    <li><a href="/resource/read/1">Some Concept Name (1)</a></li>
-    <li><a href="/resource/read/2">Some Other Concept Name (2)</a></li>
-  </ul>
+  @resources match {
+
+    case resources: Collection[Resource] => {
+      <ul>
+        @for(resource <- resources) {
+          @linkedResource(resource)
+        }
+      </ul>
+    }
+
+    case _ => {
+      <span>There are no concepts.</span>
+    }
+
+  }
 </div>
 
 }
