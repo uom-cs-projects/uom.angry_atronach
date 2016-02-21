@@ -16,8 +16,8 @@ class Understands() extends Entity {
     this.user = user
     this.resource = resource
 
-    user.understands += this
-    resource.understoodBy += this
+    user.understands.add(this)
+    resource.understoodBy.add(this)
   }
 
 }

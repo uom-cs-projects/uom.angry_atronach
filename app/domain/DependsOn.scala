@@ -16,8 +16,8 @@ class DependsOn() extends Entity {
     this.dependent = dependent
     this.prerequisite = prerequisite
 
-    dependent.prerequisites += this
-    prerequisite.dependents += this
+    dependent.prerequisites.add(this)
+    prerequisite.dependents.add(this)
   }
 
 }
