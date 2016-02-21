@@ -8,12 +8,12 @@ import org.neo4j.ogm.annotation.{NodeEntity, Relationship}
 class Resource(var title: String, var content: String) extends Entity {
   val uuid: String = UUID.randomUUID.toString
 
-  @Relationship(`type` = "DEPENDS_ON", direction = "OUTGOING")
+  @Relationship(`type` = "DEPENDS_ON", direction = Relationship.OUTGOING)
   var prerequisites: Set[DependsOn] = Set()
 
-  @Relationship(`type` = "DEPENDS_ON", direction = "INCOMING")
+  @Relationship(`type` = "DEPENDS_ON", direction = Relationship.INCOMING)
   var dependents: Set[DependsOn] = Set()
 
-  @Relationship(`type` = "UNDERSTANDS", direction = "INCOMING")
+  @Relationship(`type` = "UNDERSTANDS", direction = Relationship.INCOMING)
   var understoodBy: Set[Understands] = Set()
 }
