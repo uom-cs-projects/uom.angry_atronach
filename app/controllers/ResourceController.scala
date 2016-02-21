@@ -15,10 +15,7 @@ object ResourceController extends Controller {
   def resource(uuid: String) = Action {
     val resource = ResourceService.getByUUID(UUID.fromString(uuid))
 
-    Ok(views.html.resource.read(
-        resource.uuid,
-        resource.title,
-        resource.content))
+    Ok(views.html.resource.read(resource))
   }
 
 }
