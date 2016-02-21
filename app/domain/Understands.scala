@@ -3,12 +3,21 @@ package domain
 import org.neo4j.ogm.annotation.{RelationshipEntity, StartNode, EndNode}
 
 @RelationshipEntity(`type` = "UNDERSTANDS")
-class Understands(
-  @StartNode var user: User,
-  @EndNode var resource: Resource
-) extends Entity {
+class Understands() extends Entity {
 
-  user.understands += this
-  resource.understoodBy += this
+  @StartNode
+  var user: User = _
+
+  @EndNode
+  var resource: Resource = _
+
+  def this(user: User, resource: Resource) {
+    this
+    this.user = user
+    this.resource = resource
+
+    user.understands.add(this)
+    resource.understoodBy.add(this)
+  }
 
 }

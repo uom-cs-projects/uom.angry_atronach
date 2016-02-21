@@ -1,9 +1,19 @@
 package domain
 
+import java.util.Set
+
 import org.neo4j.ogm.annotation.{NodeEntity, Relationship}
 
 @NodeEntity
-class User(var username: String) extends Entity {
-  @Relationship(`type` = "UNDERSTANDS", direction = "OUTGOING")
-  var understands: Set[Understands] = Set()
+class User() extends Entity {
+
+  var username: String = _
+
+  @Relationship(`type` = "UNDERSTANDS", direction = Relationship.OUTGOING)
+  var understands: Set[Understands] = _
+
+  def this(username: String) {
+    this
+    this.username = username
+  }
 }

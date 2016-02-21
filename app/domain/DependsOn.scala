@@ -3,12 +3,21 @@ package domain
 import org.neo4j.ogm.annotation.{RelationshipEntity, StartNode, EndNode}
 
 @RelationshipEntity(`type` = "DEPENDS_ON")
-class DependsOn(
-  @StartNode var dependent: Resource,
-  @EndNode var prerequisite: Resource
-) extends Entity {
+class DependsOn() extends Entity {
 
-    dependent.prerequisites += this
-    prerequisite.dependents += this
+  @StartNode
+  var dependent: Resource = _
+
+  @EndNode
+  var prerequisite: Resource = _
+
+  def this(dependent: Resource, prerequisite: Resource) {
+    this
+    this.dependent = dependent
+    this.prerequisite = prerequisite
+
+    dependent.prerequisites.add(this)
+    prerequisite.dependents.add(this)
+  }
 
 }

@@ -1,32 +1,62 @@
-@(id: String, title: String, content: String)
+@import domain.{Resource, DependsOn}
+@import java.util.Set
+@(resource: Resource)
+
+@linkedResource(r: Resource) = {
+  <li><a href="/resource/read/@r.uuid">@r.title (@r.uuid)</a></li>
+}
 
 @main("Concept Name") {
 
 <div class="concept-header">
   <div class="container">
-    <h1>@title <a href="@id" class="uuid">(@id)</a></h1>
+    <h1>@resource.title
+      <a href="@resource.uuid" class="uuid">(@resource.uuid)</a>
+    </h1>
   </div>
 </div>
 <div class="container">
-  <p>@content</p>
+  <p>@resource.content</p>
 </div>
 <div class="align-bottom">
   <div class="concept-prerequisites">
     <div class="container">
       <h1>Pre-Requisites</h1>
-      <ul>
-        <li><a href="/">Some Concept Name (af654)</a></li>
-        <li><a href="/">Some Other Concept Name (af655)</a></li>
-      </ul>
+      @resource.prerequisites match {
+
+        case relations: Set[DependsOn] => {
+          <ul>
+            @for(relation <- relations) {
+              @linkedResource(relation.prerequisite)
+            }
+          </ul>
+        }
+
+        case _ => {
+          <span>There are no pre-requisites.</span>
+        }
+
+      }
     </div>
   </div>
   <div class="concept-leadsto">
     <div class="container">
-      <h1>Leads To</h1>
-      <ul>
-        <li><a href="/">Some Concept Name (af656)</a></li>
-        <li><a href="/">Some Other Concept Name (af657)</a></li>
-      </ul>
+      <h1>Dependents</h1>
+      @resource.dependents match {
+
+        case relations: Set[DependsOn] => {
+          <ul>
+            @for(relation <- relations) {
+              @linkedResource(relation.dependent)
+            }
+          </ul>
+        }
+
+        case _ => {
+          <span>There are no dependents.</span>
+        }
+
+      }
     </div>
   </div>
 </div>
