@@ -8,7 +8,12 @@ GET     /                         controllers.Application.index
 # Resources
 GET     /resource/view/:uuid      controllers.ResourceController.view(uuid)
 GET     /resource/edit/:uuid      controllers.ResourceController.edit(uuid)
+GET     /resource/create          controllers.ResourceController.create
 POST    /resource/update/:uuid    controllers.ResourceController.update(uuid)
+
+# DependsOn
+GET    /dependency/delete/:dependant/:prerequisite    controllers.DependsOnController.delete(dependant, prerequisite)
+POST   /dependency/create/:dependant                  controllers.DependsOnController.create(dependant)
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file             controllers.Assets.at(path="/public", file)
