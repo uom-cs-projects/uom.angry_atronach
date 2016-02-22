@@ -4,10 +4,11 @@
 
 # Home page
 GET     /                         controllers.Application.index
-GET     /db                       controllers.Application.db
 
 # Resources
-GET     /resource/read/:uuid      controllers.ResourceController.resource(uuid)
+GET     /resource/view/:uuid      controllers.ResourceController.view(uuid)
+GET     /resource/edit/:uuid      controllers.ResourceController.edit(uuid)
+POST    /resource/update/:uuid    controllers.ResourceController.update(uuid)
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file             controllers.Assets.at(path="/public", file)

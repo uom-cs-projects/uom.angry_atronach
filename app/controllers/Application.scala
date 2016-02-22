@@ -8,29 +8,13 @@ import play.api.Play.current
 import play.api.db._
 
 import domain._
-import repositories.Neo4jSessionFactory
-import org.neo4j.ogm.session.transaction.Transaction
+import services.ResourceService
 
 object Application extends Controller {
 
   def index = Action {
-    Ok(views.html.index())
-  }
+    val resources = ResourceService.findAll()
 
-  def db = Action {
-    val user = new User("curiousinternals")
-
-    val session = Neo4jSessionFactory.getNeo4jSession()
-    val tx: Transaction = session.beginTransaction()
-
-    try {
-      session.save(user)
-      tx.commit()
-    } catch {
-      case e: Exception => tx.rollback()
-    }
-
-
-    Ok("User saved?")
+    Ok(views.html.index(resources))
   }
 }

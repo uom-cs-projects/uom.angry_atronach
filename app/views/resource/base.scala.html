@@ -1,0 +1,16 @@
+@import domain.Resource
+@(resource: Resource)(content: Html)
+
+<div class="concept-header">
+  <div class="container">
+    <h1>@resource.title
+      <a href="/resource/view/@resource.uuid" class="uuid">@resource.uuid</a>
+    </h1>
+  </div>
+</div>
+
+<div class="container">
+  @content
+</div>
+
+@dependencyLinks(resource)
