@@ -2,10 +2,6 @@
 @import java.util.Collection
 @(resources: Collection[Resource])
 
-@linkedResource(r: Resource) = {
-  <li><a href="/resource/read/@r.uuid">@r.title (@r.uuid)</a></li>
-}
-
 @main("angry-atronach") {
 
 <div class="jumbotron text-center">
@@ -19,8 +15,10 @@
 
     case resources: Collection[Resource] => {
       <ul>
-        @for(resource <- resources) {
-          @linkedResource(resource)
+        @for(r <- resources) {
+          <li>
+            @resource.link(r)
+          </li>
         }
       </ul>
     }

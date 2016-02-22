@@ -2,16 +2,12 @@
 @import java.util.Set
 @(resource: Resource)
 
-@linkedResource(r: Resource) = {
-  <li><a href="/resource/read/@r.uuid">@r.title (@r.uuid)</a></li>
-}
-
 @main("Concept Name") {
 
 <div class="concept-header">
   <div class="container">
     <h1>@resource.title
-      <a href="@resource.uuid" class="uuid">(@resource.uuid)</a>
+      <a href="@resource.uuid" class="uuid">@resource.uuid</a>
     </h1>
   </div>
 </div>
@@ -27,7 +23,9 @@
         case relations: Set[DependsOn] => {
           <ul>
             @for(relation <- relations) {
-              @linkedResource(relation.prerequisite)
+              <li>
+                @link(relation.prerequisite)
+              </li>
             }
           </ul>
         }
@@ -47,7 +45,9 @@
         case relations: Set[DependsOn] => {
           <ul>
             @for(relation <- relations) {
-              @linkedResource(relation.dependent)
+              <li>
+                @link(relation.dependent)
+              </li>
             }
           </ul>
         }
