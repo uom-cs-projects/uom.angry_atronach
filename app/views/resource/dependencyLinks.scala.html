@@ -2,18 +2,6 @@
 @import java.util.Set
 @(resource: Resource)
 
-@main("Concept Name") {
-
-<div class="concept-header">
-  <div class="container">
-    <h1>@resource.title
-      <a href="@resource.uuid" class="uuid">@resource.uuid</a>
-    </h1>
-  </div>
-</div>
-<div class="container">
-  <p>@resource.content</p>
-</div>
 <div class="align-bottom">
   <div class="concept-prerequisites">
     <div class="container">
@@ -60,5 +48,3 @@
     </div>
   </div>
 </div>
-
-}

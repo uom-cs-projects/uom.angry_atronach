@@ -26,4 +26,9 @@ class Resource() extends Entity {
     this.title = title
     this.content = content
   }
+
+  def this(uuid: UUID, title: String, content: String) {
+    this(title, content)
+    this.uuid = uuid.toString
+  }
 }
