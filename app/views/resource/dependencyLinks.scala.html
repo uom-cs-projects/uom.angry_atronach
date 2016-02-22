@@ -13,6 +13,9 @@
             @for(relation <- relations) {
               <li>
                 @link(relation.prerequisite)
+                <a href="/dependency/delete/@resource.uuid/@relation.prerequisite.uuid">
+                  (delete)
+                </a>
               </li>
             }
           </ul>
@@ -23,6 +26,21 @@
         }
 
       }
+
+      <form action="/dependency/create/@resource.uuid" method="post">
+        <fieldset class="form-group">
+          <label for="title">Add Prerequisite</label>
+          <div class="input-group">
+            <input
+                type="text" class="form-control" id="prerequisite"
+                placeholder="Enter a UUID..."
+                name="prerequisite">
+            <span class="input-group-btn">
+              <button type="submit" class="btn btn-primary">Create</button>
+            </span>
+          </div>
+        </fieldset>
+      </form>
     </div>
   </div>
   <div class="concept-leadsto">

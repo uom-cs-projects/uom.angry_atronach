@@ -13,7 +13,10 @@ object ResourceService extends GenericService[Resource] {
     val filter = new Filter("uuid", uuid.toString)
     val matches = session.loadAll(classOf[Resource], filter, depth)
 
-    return matches.iterator.next
+    if (matches.isEmpty)
+      return null;
+    else
+      return matches.iterator.next
   }
 
   def getEntityType(): Class[Resource] = classOf[Resource]

@@ -22,9 +22,17 @@ object ResourceController extends Controller {
   }
 
   def edit(uuid: String) = Action {
-    val resource = ResourceService.getByUUID(UUID.fromString(uuid))
+    ResourceService.getByUUID(UUID.fromString(uuid)) match {
+      case resource: Resource => Ok(views.html.resource.edit(resource))
+      case _ => {
+        val resource = new Resource()
+        Ok(views.html.resource.edit(resource))
+      }
+    }
+  }
 
-    Ok(views.html.resource.edit(resource))
+  def create = Action {
+    Redirect(routes.ResourceController.edit(UUID.randomUUID.toString))
   }
 
   def update(uuid: String) = Action { implicit request =>
@@ -39,10 +47,15 @@ object ResourceController extends Controller {
         BadRequest("Oh dear!")
       },
       data => {
-        var resource = ResourceService.getByUUID(UUID.fromString(uuid))
+        var resource = ResourceService.getByUUID(UUID.fromString(uuid)) match {
+          case res: Resource => res
+          case _ => new Resource()
+        }
+
         resource.title = data.title
         resource.content = data.content
-        
+        resource.uuid = uuid
+
         ResourceService.createOrUpdate(resource)
 
         Redirect(routes.ResourceController.view(uuid))
