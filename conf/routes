@@ -15,5 +15,8 @@ POST    /resource/update/:uuid    controllers.ResourceController.update(uuid)
 GET    /dependency/delete/:dependant/:prerequisite    controllers.DependsOnController.delete(dependant, prerequisite)
 POST   /dependency/create/:dependant                  controllers.DependsOnController.create(dependant)
 
+# Implementation
+GET    /implementation/view/:uuid  controllers.Implementation.view(uuid)
+
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file             controllers.Assets.at(path="/public", file)

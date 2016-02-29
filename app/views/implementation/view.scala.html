@@ -1,0 +1,8 @@
+@import repos.neo4j.domain.Implementation
+@(implementation: Implementation)
+
+@main(implementation.implements.head.target.description) {
+
+  <p>@implementation.source</p>
+
+}
