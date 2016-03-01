@@ -14,7 +14,7 @@ import repos.neo4j.domain.Implementation
 object Implementation extends Controller {
 
   def view(uuid: String) = Action {
-    val implementation = ImplementationService.getByUUID(UUID.fromString(uuid))
+    val implementation = ImplementationService.find(UUID.fromString(uuid))
 
     implementation match {
       case Some(i) => Ok(views.html.implementation.view(i))

@@ -1,11 +1,12 @@
 package repos.neo4j.services
 
-import java.lang.{Long => JLong}
+import java.util.UUID
 import java.util.{Collection => JCollection}
 
 trait Service[T] {
   def findAll(): JCollection[T]
-  def find(graphId: JLong): T
-  def delete(graphId: JLong)
+
+  def find(uuid: UUID): Option[T]
+  def delete(uuid: UUID)
   def createOrUpdate(o: T): T
 }

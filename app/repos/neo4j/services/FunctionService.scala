@@ -8,12 +8,5 @@ import java.util.HashMap
 import repos.neo4j.domain.Function
 
 object FunctionService extends GenericService[Function] {
-  def getByUUID(uuid: UUID): Option[Function] = {
-    val matches = session.loadAll(
-        classOf[Function], new Filter("uuid", uuid.toString), 1)
-
-    return Some(matches.iterator.next)
-  }
-
   def getEntityType(): Class[Function] = classOf[Function]
 }

@@ -14,7 +14,7 @@ import repos.neo4j.domain.Function
 object Function extends Controller {
 
   def view(uuid: String) = Action {
-    val function = FunctionService.getByUUID(UUID.fromString(uuid))
+    val function = FunctionService.find(UUID.fromString(uuid))
 
     function match {
       case Some(f) => Ok(views.html.function.view(f))

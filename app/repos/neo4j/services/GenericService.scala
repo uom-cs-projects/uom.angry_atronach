@@ -2,11 +2,14 @@ package repos.neo4j.services
 
 import java.lang.{Long => JLong}
 import java.util.{Collection => JCollection}
+import java.util.UUID
 
-import repos.neo4j.domain.Entity
+import repos.neo4j.domain.UUIDSupport
 import repos.neo4j.SessionFactory
 
-abstract class GenericService[E <: Entity] extends Service[E] {
+import org.neo4j.ogm.cypher.Filter
+
+abstract class GenericService[E <: UUIDSupport] extends Service[E] {
   private val DEPTH_LIST = 0
   private val DEPTH_ENTITY = 1
   protected val session = SessionFactory.session
@@ -15,17 +18,34 @@ abstract class GenericService[E <: Entity] extends Service[E] {
     return session.loadAll(getEntityType, DEPTH_LIST)
   }
 
-  override def find(graphId: JLong): E = {
-    return session.load(getEntityType, graphId, DEPTH_ENTITY)
+  override def find(uuid: UUID): Option[E] = {
+    val result = session.loadAll(
+        getEntityType, new Filter("uuid", uuid.toString), DEPTH_ENTITY)
+
+    if (result.size != 1) {
+      // throw
+      return Some(result.iterator.next)
+    } else {
+      return Some(result.iterator.next)
+    }
   }
 
-  override def delete(graphId: JLong) {
-    session.delete(session.load(getEntityType, graphId))
+  override def delete(uuid: UUID) {
+    session.delete(session.loadAll(
+        getEntityType, new Filter("uuid", uuid.toString)))
   }
 
   override def createOrUpdate(entity: E): E = {
     session.save(entity, DEPTH_ENTITY)
-    return find(entity.graphId)
+    find(UUID.fromString(entity.uuid)) match {
+      case Some(entity) => {
+        return entity
+      }
+      case None => {
+        //throw
+        return entity
+      }
+    }
   }
 
   def getEntityType(): Class[E]
