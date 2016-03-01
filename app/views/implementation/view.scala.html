@@ -3,9 +3,9 @@
 @import java.util.Set
 @(implementation: Implementation)
 
-@main("Implementation " + implementation.uuid) {
+@main("Implementation : " + implementation.title) {
 
-  <h1>Implementation <span class="small">@implementation.uuid</span></h1>
+  <h1>@implementation.title <span class="small">@implementation.uuid</span></h1>
 
   @implementation.source
 

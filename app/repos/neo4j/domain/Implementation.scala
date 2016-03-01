@@ -6,6 +6,7 @@ import java.util.Set
 
 class Implementation extends Node with UUIDSupport {
 
+  var title: String = _
   var source: String = _
 
   @Relationship(`type` = "IMPLEMENTS", direction = Relationship.OUTGOING)

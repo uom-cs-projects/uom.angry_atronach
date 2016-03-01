@@ -2,5 +2,6 @@
 @(implementation: Implementation)
 
 <a href="@routes.Implementation.view(implementation.uuid)">
-  <span class="small">@implementation.uuid</span>
+  @implementation.title
 </a>
+<span class="small">@implementation.uuid</span>
