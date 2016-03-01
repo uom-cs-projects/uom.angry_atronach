@@ -1,0 +1,7 @@
+@import repos.neo4j.domain.Function
+@(function: Function)
+
+<a href="@routes.Function.view(function.uuid)">
+  @function.description
+</a>
+<span class="small">@function.uuid</span>

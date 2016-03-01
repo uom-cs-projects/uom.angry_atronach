@@ -1,0 +1,6 @@
+@import repos.neo4j.domain.Implementation
+@(implementation: Implementation)
+
+<a href="@routes.Implementation.view(implementation.uuid)">
+  <span class="small">@implementation.uuid</span>
+</a>
