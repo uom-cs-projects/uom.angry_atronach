@@ -8,13 +8,13 @@ import play.api.Play.current
 import play.api.db._
 
 import domain._
-import services.ResourceService
+import repos.neo4j.services.FunctionService
 
 object Application extends Controller {
 
   def index = Action {
-    val resources = ResourceService.findAll()
+    val functions = FunctionService.findAll()
 
-    Ok(views.html.index(resources))
+    Ok(views.html.index(functions))
   }
 }

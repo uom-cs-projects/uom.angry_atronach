@@ -1,6 +1,6 @@
-@import domain.Resource
+@import repos.neo4j.domain.Function
 @import java.util.Collection
-@(resources: Collection[Resource])
+@(functions: Collection[Function])
 
 @main("angry-atronach") {
 
@@ -10,21 +10,21 @@
   </div>
 </div>
 <div class="container">
-  <h1>Concepts</h1>
-  @resources match {
+  <h1>Functions</h1>
+  @functions match {
 
-    case resources: Collection[Resource] => {
+    case functions: Collection[Function] => {
       <ul>
-        @for(r <- resources) {
+        @for(f <- functions) {
           <li>
-            @resource.link(r)
+            @function.link(f)
           </li>
         }
       </ul>
     }
 
     case _ => {
-      <span>There are no concepts.</span>
+      <span>There are no functions.</span>
     }
 
   }
