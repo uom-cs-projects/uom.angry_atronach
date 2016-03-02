@@ -18,7 +18,18 @@ object Implementation extends Controller {
 
     implementation match {
       case Some(i) => Ok(views.html.implementation.view(i))
-      case None => NotFound("Oops!")
+      case None =>
+          NotFound(s"No implementation with this UUID ($uuid) was found.")
+    }
+  }
+
+  def edit(uuid: String) = Action {
+    val implementation = ImplementationService.find(UUID.fromString(uuid))
+
+    implementation match {
+      case Some(i) => Ok(views.html.implementation.edit(i))
+      case None =>
+          NotFound(s"No implementation with this UUID ($uuid) was found.")
     }
   }
 

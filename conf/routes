@@ -17,6 +17,7 @@ POST   /dependency/create/:dependant                  controllers.DependsOnContr
 
 # Implementation
 GET    /implementation/view/:uuid  controllers.Implementation.view(uuid)
+GET    /implementation/edit/:uuid  controllers.Implementation.edit(uuid)
 
 # Function
 GET    /function/view/:uuid  controllers.Function.view(uuid)
