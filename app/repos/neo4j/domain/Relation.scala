@@ -6,5 +6,5 @@ abstract class Relation[S <: Node, T <: Node] extends Entity {
 
   @StartNode var source: S = _
   @EndNode var target: T = _
-
+  
 }

@@ -12,4 +12,13 @@ class Implementation extends Node with UUIDSupport {
   @Relationship(`type` = "IMPLEMENTS", direction = Relationship.OUTGOING)
   var implements: Set[Implements] = _
 
+  def this(title: String) = {
+    this
+    this.title = title
+  }
+
+  def this(title: String, source: String) = {
+    this(title)
+    this.source = source
+  }
 }

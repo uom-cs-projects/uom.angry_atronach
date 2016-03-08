@@ -7,7 +7,6 @@ import play.api.Play.current
 
 import play.api.db._
 
-import domain._
 import repos.neo4j.services.FunctionService
 
 object Application extends Controller {

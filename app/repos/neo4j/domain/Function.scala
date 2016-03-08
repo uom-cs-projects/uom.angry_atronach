@@ -17,4 +17,8 @@ class Function extends Node with UUIDSupport {
   @Relationship(`type` = "IMPLEMENTS", direction = Relationship.INCOMING)
   var implementedBy: Set[Implements] = _
 
+  def this(description: String) = {
+    this
+    this.description = description
+  }
 }
