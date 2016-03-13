@@ -5,6 +5,9 @@
 # Home page
 GET     /                         controllers.Application.index
 
+# Graph Visualizer
+GET    /graph  controllers.Graph.view
+
 # Implementation
 GET    /implementation/view/:uuid  controllers.Implementation.view(uuid)
 GET    /implementation/edit/:uuid  controllers.Implementation.edit(uuid)
