@@ -14,11 +14,14 @@ import repos.neo4j.domain.Function
 object Function extends Controller {
 
   def view(uuid: String) = Action {
-    val function = FunctionService.find(UUID.fromString(uuid))
-
-    function match {
-      case Some(f) => Ok(views.html.function.view(f))
-      case None => NotFound("Oops!")
+    try {
+      FunctionService.find(UUID.fromString(uuid)) match {
+        case Some(f) => Ok(views.html.function.view(f))
+        case None => NotFound("Oops!")
+      }
+    } catch {
+      case e: IllegalArgumentException =>
+          BadRequest(s"'$uuid' is not a valid UUID.")
     }
   }
 

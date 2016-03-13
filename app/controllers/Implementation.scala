@@ -14,12 +14,15 @@ import repos.neo4j.domain.Implementation
 object Implementation extends Controller {
 
   def view(uuid: String) = Action {
-    val implementation = ImplementationService.find(UUID.fromString(uuid))
-
-    implementation match {
-      case Some(i) => Ok(views.html.implementation.view(i))
-      case None =>
-          NotFound(s"No implementation with this UUID ($uuid) was found.")
+    try {
+      ImplementationService.find(UUID.fromString(uuid)) match {
+        case Some(i) => Ok(views.html.implementation.view(i))
+        case None =>
+            NotFound(s"No implementation with this UUID ($uuid) was found.")
+      }
+    } catch {
+      case e: IllegalArgumentException =>
+          BadRequest(s"'$uuid' is not a valid UUID.")
     }
   }
 

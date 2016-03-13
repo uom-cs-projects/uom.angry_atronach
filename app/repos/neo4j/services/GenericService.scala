@@ -9,6 +9,8 @@ import repos.neo4j.SessionFactory
 
 import org.neo4j.ogm.cypher.Filter
 
+import repos.neo4j.services.exceptions.UUIDNotUniqueException
+
 abstract class GenericService[E <: UUIDSupport] extends Service[E] {
   private val DEPTH_LIST = 0
   private val DEPTH_ENTITY = 1
@@ -22,9 +24,11 @@ abstract class GenericService[E <: UUIDSupport] extends Service[E] {
     val result = session.loadAll(
         getEntityType, new Filter("uuid", uuid.toString), DEPTH_ENTITY)
 
-    if (result.size != 1) {
-      // throw
-      return Some(result.iterator.next)
+    if (result.size == 0) {
+      return None
+    } else if (result.size > 1) {
+      throw new UUIDNotUniqueException(
+          message = s"'$uuid' matched more than one entity.")
     } else {
       return Some(result.iterator.next)
     }
