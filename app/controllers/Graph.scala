@@ -5,12 +5,14 @@ import play.api.mvc._
 import play.api.cache.Cache
 import play.api.Play.current
 
-
+import repos.neo4j.services.FunctionService
 
 object Graph extends Controller {
 
   def view = Action {
-    Ok(views.html.graph.view())
+    val functions = FunctionService.findAll()
+
+    Ok(views.html.graph.view(functions))
   }
 
 }

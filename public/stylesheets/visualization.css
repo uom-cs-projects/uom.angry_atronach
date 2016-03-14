@@ -1,0 +1,9 @@
+.function {
+  stroke: #fff;
+  stroke-width: 2px;
+}
+
+.dependsOn {
+  stroke: #aaa;
+  stroke-opacity: 0.5;
+}
