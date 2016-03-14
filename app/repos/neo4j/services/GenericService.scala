@@ -16,8 +16,8 @@ abstract class GenericService[E <: UUIDSupport] extends Service[E] {
   private val DEPTH_ENTITY = 1
   protected val session = SessionFactory.session
 
-  override def findAll(): JCollection[E] = {
-    return session.loadAll(getEntityType, DEPTH_LIST)
+  override def findAll(depth: Int = DEPTH_LIST): JCollection[E] = {
+    return session.loadAll(getEntityType, depth)
   }
 
   override def find(uuid: UUID): Option[E] = {

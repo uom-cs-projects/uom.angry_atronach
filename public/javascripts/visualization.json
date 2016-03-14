@@ -1,0 +1,18 @@
+{
+  "nodes": [
+    {
+      "uuid": "bbb43cb2-5655-416c-9e48-886c2d38f5e0",
+      "description": "blah"
+    },
+    {
+      "uuid": "ac80e134-407e-4582-8866-ab963c9dbe26",
+      "description": "blah blah"
+    }
+  ],
+  "links": [
+    {
+      "source": "bbb43cb2-5655-416c-9e48-886c2d38f5e0",
+      "target": "ac80e134-407e-4582-8866-ab963c9dbe26"
+    }
+  ]
+}

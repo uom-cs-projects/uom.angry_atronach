@@ -1,15 +1,15 @@
 /**
  * Visualization of the Function dependency graph.
  */
-(function (externalGraph) {
+var visualization = (function () {
   'use strict';
 
   var config = {
     width: 960,
     height: 500,
     colour: "#555",
-    node_radius: 20,
-    edge_width: 1
+    node_radius: 10,
+    edge_width: 2
   };
 
   /**
@@ -102,5 +102,9 @@
     }
   }; // init
 
-  init.visualization(asD3Graph(externalGraph), config);
-})(data);
+  return {
+    init: function(externalGraph) {
+      init.visualization(asD3Graph(externalGraph), config);
+    }
+  };
+})();
