@@ -7,9 +7,7 @@ var visualization = (function () {
   var config = {
     width: 960,
     height: 500,
-    colour: "#555",
-    node_radius: 10,
-    edge_width: 2
+    node_radius: 20
   };
 
   /**
@@ -38,16 +36,30 @@ var visualization = (function () {
    */
   var init = {
     svg: function(cfg) {
-      return d3.select("#graph")
+      var svg = d3.select("#graph")
         .append("svg")
           .attr("width", cfg.width)
           .attr("height", cfg.height);
+
+      svg.append("svg:defs").selectAll("marker")
+        .data(["end"])
+      .enter().append("svg:marker")
+        .attr("id", String)
+        .attr("viewBox", "0 -5 10 10")
+        .attr("refX", 6 + cfg.node_radius)
+        .attr("markerWidth", 6)
+        .attr("markerHeight", 6)
+        .attr("orient", "auto")
+      .append("svg:path")
+        .attr("d", "M0,-5L10,0L0,5Z");
+
+      return svg;
     },
 
     force: function(graph, cfg) {
       return d3.layout.force()
         .charge(-120)
-        .linkDistance(4 * cfg.node_radius)
+        .linkDistance(10 * cfg.node_radius)
         .size([cfg.width, cfg.height])
         .nodes(graph.nodes)
         .links(graph.links);
@@ -59,20 +71,26 @@ var visualization = (function () {
           .data(graph.links)
         .enter().append("line")
           .attr("class", "dependsOn")
-          .style("stroke-width", cfg.edge_width);
+          .attr("marker-end", "url(#end)");
     },
 
     node: function(graph, cfg, svg, force) {
       var node = svg
         .selectAll(".function")
           .data(graph.nodes)
-        .enter().append("circle")
+        .enter().append("g")
           .attr("class", "function")
-          .attr("r", cfg.node_radius)
-          .style("fill", cfg.colour)
           .call(force.drag);
 
+      node.append("circle")
+        .attr("r", cfg.node_radius)
+
       node.append("title")
+        .text(function(d) { return d.description; });
+
+      node.append("text")
+        .attr("x", 1.2 * cfg.node_radius)
+        .attr("dy", "0.4em")
         .text(function(d) { return d.description; });
 
       return node;
@@ -93,13 +111,15 @@ var visualization = (function () {
       var node = init.node(graph, config, svg, force);
 
       force.on("tick", function() {
-        link.attr("x1", function(d) { return d.source.x; })
+        link
+          .attr("x1", function(d) { return d.source.x; })
           .attr("y1", function(d) { return d.source.y; })
           .attr("x2", function(d) { return d.target.x; })
           .attr("y2", function(d) { return d.target.y; });
 
-        node.attr("cx", function(d) { return d.x; })
-          .attr("cy", function(d) { return d.y; });
+        node.attr("transform", function(d) {
+    	    return "translate(" + d.x + "," + d.y + ")";
+        });
       });
 
       force.start();
