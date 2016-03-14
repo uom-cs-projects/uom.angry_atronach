@@ -76,17 +76,21 @@ var visualization = (function () {
         .text(function(d) { return d.description; });
 
       return node;
-    },
+    }
+  }; // init
 
-    visualization: function(graph, cfg) {
+  return {
+    init: function(externalGraph) {
+      var graph = asD3Graph(externalGraph)
+
       // Clear loading message
       d3.select("#graph").html("");
 
       // Inits
-      var svg = this.svg(cfg);
-      var force = this.force(graph, cfg, link, node);
-      var link = this.link(graph, cfg, svg);
-      var node = this.node(graph, cfg, svg, force);
+      var svg = init.svg(config);
+      var force = init.force(graph, config);
+      var link = init.link(graph, config, svg);
+      var node = init.node(graph, config, svg, force);
 
       force.on("tick", function() {
         link.attr("x1", function(d) { return d.source.x; })
@@ -99,12 +103,6 @@ var visualization = (function () {
       });
 
       force.start();
-    }
-  }; // init
-
-  return {
-    init: function(externalGraph) {
-      init.visualization(asD3Graph(externalGraph), config);
     }
   };
 })();
