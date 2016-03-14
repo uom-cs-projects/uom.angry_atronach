@@ -59,7 +59,8 @@ var visualization = (function () {
     force: function(graph, cfg) {
       return d3.layout.force()
         .charge(-120)
-        .linkDistance(10 * cfg.node_radius)
+        .linkDistance(8 * cfg.node_radius)
+        .gravity(0.01)
         .size([cfg.width, cfg.height])
         .nodes(graph.nodes)
         .links(graph.links);
