@@ -1,0 +1,26 @@
+@import repos.neo4j.domain.Implementation
+@import repos.neo4j.domain.Implements
+@import java.util.Set
+@(implementation: Implementation)
+
+@main("Implementation : " + implementation.title) {
+
+  <h1>@implementation.title <span class="small">@implementation.uuid</span></h1>
+
+  @implementation.source
+
+  <h2>Implements →</h2>
+  @implementation.implements match {
+
+    case implements: Set[Implements] => {
+      <ul>
+      @for(imp <- implements) {
+        <li>@function.link(imp.target)</li>
+      }
+      </ul>
+    }
+
+    case _ => {<span>No functions are implemented.</span>}
+  }
+
+}

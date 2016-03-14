@@ -1,0 +1,20 @@
+.function circle {
+  fill: #3BA381;
+  stroke: #fff;
+  stroke-width: 0px;
+}
+.function text {
+  fill: #000;
+  font: 10px sans-serif;
+  pointer-events: none;
+  font-size: 1em;
+}
+
+.dependsOn {
+  stroke: #777;
+  stroke-width: 2px;
+  stroke-opacity: 0.5;
+}
+marker#end {
+  fill: #777;
+}

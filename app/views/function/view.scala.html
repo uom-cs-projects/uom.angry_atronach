@@ -1,0 +1,53 @@
+@import repos.neo4j.domain.DependsOn
+@import repos.neo4j.domain.Function
+@import repos.neo4j.domain.Implements
+@import java.util.Set
+@(function: Function)
+
+@main("Function : " + function.description) {
+
+  <h1>@function.description <span class="small">@function.uuid</span></h1>
+
+  <h2>Implemented By →</h2>
+  @function.implementedBy match {
+
+    case implementedBy: Set[Implements] => {
+      <ul>
+      @for(imp <- implementedBy) {
+        <li>@implementation.link(imp.source)</li>
+      }
+      </ul>
+    }
+
+    case _ => {<span>No implementations.</span>}
+  }
+
+  <h2>Depends On →</h2>
+  @function.dependsOn match {
+
+    case dependsOn: Set[DependsOn] => {
+      <ul>
+      @for(dep <- dependsOn) {
+        <li>@link(dep.target)</li>
+      }
+      </ul>
+    }
+
+    case _ => {<span>No dependencies.</span>}
+  }
+
+  <h2>Leads To →</h2>
+  @function.leadsTo match {
+
+    case leadsTo: Set[DependsOn] => {
+      <ul>
+      @for(dep <- leadsTo) {
+        <li>@link(dep.source)</li>
+      }
+      </ul>
+    }
+
+    case _ => {<span>Doesn't unlock anything.</span>}
+  }
+
+}

@@ -11,6 +11,8 @@ libraryDependencies ++= Seq(
   cache,
   "org.postgresql" % "postgresql" % "9.4-1201-jdbc41",
   "org.neo4j" % "neo4j-ogm" % "1.1.3",
+  "org.specs2" %% "specs2-core" % "3.7" % "test",
+  "org.specs2" %% "specs2-junit" % "3.7" % "test",
   ws
 )
 

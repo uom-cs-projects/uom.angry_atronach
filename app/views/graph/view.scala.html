@@ -1,0 +1,21 @@
+@import repos.neo4j.domain.Function
+@import java.util.Collection
+
+@main("Graph") {
+
+  <div id="graph">
+    <p class="text-center text-muted">Loading...</p>
+  </div>
+
+  <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/visualization.css")" />
+  <script src="//d3js.org/d3.v3.min.js" charset="utf-8"></script>
+  <script src="@routes.Assets.at("javascripts/visualization.js")" charset="utf-8"></script>
+  <script>
+  d3.json("@routes.Graph.json()",
+    function(error, json) {
+      if (error) return console.warn(error);
+      else visualization.init(json);
+    });
+  </script>
+
+}
