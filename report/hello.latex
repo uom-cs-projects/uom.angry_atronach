@@ -1,0 +1,9 @@
+\documentclass{article}
+
+\title{Hello World}
+\author{Mathew Campbell}
+
+\begin{document}
+  \maketitle
+  Hello world!
+\end{document}
