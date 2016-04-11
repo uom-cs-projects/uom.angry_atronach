@@ -1,4 +1,4 @@
-\documentclass{article}
+\documentclass{report}
 
 \title{Hello World}
 \author{Mathew Campbell}
