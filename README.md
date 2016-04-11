@@ -1,21 +1,39 @@
-# scala/angry-atronach
+# angry-atronach
 
-A barebones Scala app (using the Play framework), which can easily be deployed to Heroku.  
+Third year project.
 
-This application support the [Getting Started with Scala/Play on Heroku](https://devcenter.heroku.com/articles/getting-started-with-scala) article - check it out.
+The latest build can be viewed online at http://angry-atronach.herokuapp.com/
+
+Please note that the server will take a moment to wake up after the first
+attempt to access the application.
+
+## Dependencies
+
+- [activator](https://www.lightbend.com/activator/download)
+- [neo4j community edition](http://neo4j.com/download/)
+- [Heroku Toolbelt](https://toolbelt.heroku.com/), if you want to publish
+  the project as an application on [heroku](https://www.heroku.com/).
+
+Unfortunately, the login details for the local neo4j server are hard-coded into
+the project at this time, so you'll have to set up the server to match. Take a
+look at `repos.neo4j.SessionFactory`.
 
 ## Running Locally
 
-Make sure you have Play and sbt installed.  Also, install the [Heroku Toolbelt](https://toolbelt.heroku.com/).
+Your neo4j server needs to be running. If you've set it up as a service, then
+it should already be running.
 
 ```sh
-$ git clone https://github.com/heroku/scala-getting-started.git
-$ cd scala-getting-started
-$ sbt compile stage
-$ heroku local
+$ activator run
 ```
 
-Your app should now be running on [localhost:5000](http://localhost:5000/).
+The program should now be running on [localhost:9000](http://localhost:9000/).
+
+## Running Tests
+
+```sh
+$ activator test
+```
 
 ## Deploying to Heroku
 
@@ -24,10 +42,3 @@ $ heroku create
 $ git push heroku master
 $ heroku open
 ```
-
-## Documentation
-
-For more information about using Play and Scala on Heroku, see these Dev Center articles:
-
-- [Play and Scala on Heroku](https://devcenter.heroku.com/categories/language-support#scala-and-play)
-
