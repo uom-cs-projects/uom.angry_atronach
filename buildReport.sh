@@ -4,7 +4,7 @@ INPUT_DIR=report
 
 if [ -z "$1" ]
 then
-  INPUT=$INPUT_DIR/report.latex
+  INPUT=$INPUT_DIR/report.tex
 else
   INPUT=$INPUT_DIR/$1
 fi
