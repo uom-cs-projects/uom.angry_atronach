@@ -1,12 +1,11 @@
 #!/bin/sh
-OUTPUT_DIR=target/report
-INPUT_DIR=report
+OUTPUT_DIR=../target/report
 
 if [ -z "$1" ]
 then
-  INPUT=$INPUT_DIR/report.tex
+  INPUT=main.tex
 else
-  INPUT=$INPUT_DIR/$1
+  INPUT=$1
 fi
 
 mkdir -p $OUTPUT_DIR
