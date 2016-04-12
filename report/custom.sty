@@ -1,0 +1,47 @@
+\ProvidesPackage{custom}
+
+% Custom variables
+\newcommand{\supervisor}[1]{\def\@supervisor{#1}}
+\newcommand{\degreeProgram}[1]{\def\@degreeProgram{#1}}
+
+% Custom Title Page
+\newcommand\makeTYPTitle{
+  \begin{titlepage}
+    \let\footnotesize\small
+    \let\footnoterule\relax
+    \let \footnote \thanks
+
+    \null\vfil
+    \vskip 60\p@
+
+    \begin{center}
+      {\LARGE \@title \par}
+
+      \vskip 3em
+
+      { % People
+        \large
+        \lineskip .75em
+
+        \begin{tabular}[t]{c}
+          \@author
+        \end{tabular}\par
+
+        \vskip 1em
+
+        Supervisor: \@supervisor
+      }
+
+      \vskip 1.5em
+
+      {\large \@date \par}
+
+      \vskip 2em
+
+      This is a project report for a third year project done in the School of Computer Science at the University of Manchester.
+    \end{center}\par
+
+    \@thanks
+    \vfil\null
+  \end{titlepage}
+}
