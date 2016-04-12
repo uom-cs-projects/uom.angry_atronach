@@ -10,4 +10,7 @@ else
 fi
 
 mkdir -p $OUTPUT_DIR
+
+# Run the command twice to ensure the TOC etc are up to date
+pdflatex -output-directory $OUTPUT_DIR $INPUT
 pdflatex -output-directory $OUTPUT_DIR $INPUT
