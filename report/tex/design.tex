@@ -3,13 +3,74 @@
   This chapter describes and justifies the final design decisions I made, as well as explaining some of the key changes I made to the design as I learned more. Technical details are left to Chapter \ref{chapter:implementation}: This chapter remains at a higher level, focussing on the model used and the overall architecture of the system.
 
   \section{Requirements}
+
   \section{Model}
     A considerable portion of the time allocated to this project was spent on developing a model to represent elements of the learning process. This model underwent a number of changes. In this section I will mostly discuss the final model.
 
     \subsection{Core Concepts}
-      
+      \todo{
+        \item Introduce the underlying thought process in creating the final model: Humans as computers.
+        \item Introduce the terminology, then go into detail in the subsections
+      }
 
-    \subsection{Initial Model}
+      \subsubsection{Learners}
+        \todo{
+          \item Learners are treated as computers: The assumption is that a human can do everything a computer can \emph{at least}
+          \item Acknowledge that human hardware is different from electronic computer hardware: We have strengths and weaknesses that conventional computers don't have
+          \item Learners can do visual processing that computers struggle with: Graphs and pictures are a valid way to learn things, often more effective than text.
+          \item Learners forget stuff they don't use: JIT learning is a good idea, so that learners immediately start using a skill, hence they don't have to relearn stuff
+          \item Learners have very little short term memory (7 things? UI stuff): Resources will have to be designed around avoiding using up this memory: Short, simple sentences are easier to parse as they don't require you to keep track of context.
+          \item Learners must have some internals representation of the information that makes up their knowledge: The exact format of this data is not hugely important, although further knowledge of it may indicate easier input formats to use
+          \item Learning is the process of translating external information into some internal representation: Most learning tasks are analagous to compilation.
+        }
+
+      \subsubsection{Functions}
+        \todo{
+          \item Functions are things that people can do
+          \item Functions are best defined by their tests
+          \item Functions can be extended to include physical functionality, like walking or being able to pick something up: This allows the model to potentially be used to handle skills that aren't purely mental
+          \item Some functions may not be possible without other functions: They have dependencies
+        }
+
+      \subsubsection{Implementations}
+        \todo{
+          \item Actions: A Function that is applied in order to learn an implementation of a function.
+          \item Sources: A source of information that provides a working implementation of a function when the necessary actions are applied to it.
+        }
+
+      \subsubsection{Tests}
+        \todo{
+          \item These are used to determine whether a Learner has gained a particular Function.
+          \item The test need to be carefully constructed to avoid making them game-able: Like normal unit tests, they should test edge cases. Many real tests only test normal cases.
+          \item
+        }
+
+      \subsubsection{Root Function}
+        \todo{
+          \item Perhaps this needs a better name?
+          \item Abstracts away the details of the bottom of the graph: There are lots of low level skills we will probably have a lot of trouble working out: e.g. What functionality does a normal baby have? What are the most basic abilities of a human the lead to all other skills being learned (what's built into the hardware?)
+        }
+
+    \subsection{Properties}
+      \todo{
+        \item Discuss the main properties of the model:
+        \item Dependencies define possible orders in which learners can successfully approach functionality
+        \item Dependency graph has intersting uses: troubleshooting, optimum function selection given some goals
+        \item Acyclic dependencies
+      }
+
+    \subsection{Uses}
+      \todo{
+        \item Troubleshooting using backtracking
+        \item Study plan generation given goals
+        \item Time estimates for work if extra metadata is added
+        \item More accurate representation of a learner's actual abilities
+      }
+
     \subsection{Key Changes}
-    \subsection{Final Model}
+
   \section{Architecture}
+    \todo{
+      \item Mention the intended way of structuring the program
+      \item Database, API etc
+    }
