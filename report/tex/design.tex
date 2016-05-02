@@ -8,10 +8,22 @@
       \item The purpose is to act as a prototype for future tools, and a way to test how practical my model is for people to actually use
     }
   \section{Requirements}
-    \todo{\item}
+    \todo{
+      \item Didn't want to do design up front, so my requirements are necessarily high level. The plan was to develop a core set of functionality, and then try and implement some of the Applicatiosn of the model, refining the design based on feedback
+      \item Core functionality includes:
+      \item implementing the model in some database
+      \item implementing a way to view the data
+      \item Implementing a web based UI that allows the primitive operations to be carried out
+      \item Implementing the compound operations
+      \item Implementing the most basic application: Generating a list of actions to take given a goal or set of goals
+      \item Given that the software I managed to make didn't get very far, I didn't get around to implementing any of the other features I had available to work on
+    }
 
   \section{Architecture}
     \todo{
       \item Mention the intended way of structuring the program
-      \item Database, API etc
+      \item Database with an API: The model
+      \item Application built on top of that data source
+      \item The idea would be to eventually make the data source a service, which would allow third-party applications to interact witht the system: I wanted to come up with a standard for the model to allow external development
+      \item Standard MVC architecture for the web app
     }
