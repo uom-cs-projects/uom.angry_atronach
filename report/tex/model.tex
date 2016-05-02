@@ -46,14 +46,13 @@
 
   \section{Consequences}
     \todo{
-      \item Discuss the main properties of the model:
       \item Dependencies define possible orders in which learners can successfully approach functionality
-      \item Dependency graph has intersting uses: troubleshooting, optimum function selection given some goals
-      \item Acyclic dependencies
+      \item Acyclic graph of dependencies
     }
 
   \section{Applications}
     \todo{
+      \item Summary rather than in-depth analysis
       \item Troubleshooting using backtracking
       \item Study plan generation given goals
       \item Time estimates for work if extra metadata is added
@@ -63,6 +62,24 @@
   \section{Applying the Model}
     \todo{
       \item A subject area can be refined into smaller and smaller functions
+      \item Take an existing resource and treat the abilities gained from that resource as one big function
+      \item Try to strip out part of the resource into a seperate function
+      \item The major operations: There are primitives, but it's best to capture compound operations that are logically connected as a single operation
     }
+
+    \subsection{Refinement}
+      \subsubsection{Serial Split}
+      \subsubsection{Parallel Split}
+    \subsection{Addition}
+      \subsubsection{Extend}
+    \subsection{Correction}
+      \subsubsection{Inject}
+      \subsubsection{Merge}
+      \subsubsection{Relink}
+        \todo{
+          \item unlink and link primitives are available, but it is better to allow many primitive linking operations at once to capture things like mistaken links: The link target is corrected rather than the link's existence.
+        }
+
+      \subsubsection{Delete}
 
   \section{Key Changes}
