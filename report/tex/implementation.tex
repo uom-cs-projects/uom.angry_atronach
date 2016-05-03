@@ -50,6 +50,7 @@
         \item Graph database very suitable for problem domain
         \item Uses Cypher, a very neat query language
         \item neo4j-ogm
+        \item neo4j-ogm has problems: Java based, bean based. I would have liked to make some properties immutable, but neo4j-ogm requires that the objects you create for it are mutable. Makes the model less safe as uuids might accidentally be modified.
       }
 
     \subsection{Heroku}
@@ -69,7 +70,37 @@
     }
 
   \section{Key Events}
+    \subsection{Chnages to Database}
+      \todo{
+        \item Took a long time to decide
+        \item started off using a relational db model with Squeryl as my ORM, so I could select whatever database was suitable. Wasn't much work in the end to convert what I'd come up with in Squeryl to neo4j-ogm: Also the model changed at the time, so I had to redo some stuff anyway
+        \item Used the built in db of scalatra, h2, during development
+        \item relational wouldn't do, so considered a mix of graph data and relational for the contents of nodes: Overcomplicated
+        \item Tried OrientDB. Too difficult to set up due to difficult documentation.
+        \item Came across some indications that OrientDB might not be a stable choice, decided to look at some other options
+        \item tried neo4j: Managed to set it up very quickly and Cypher was really good. Docs excellent: Stick with whatever gets me up and running first
+      }
+
     \subsection{Change of Stack}
+      \todo{
+        \item I started out using a different web stack:
+        Scalatra, the code looked the simplest to read and made it easy for me to get started: Unfortunately the docs turned out to be lacking, and making a public deployment as well as connecting to a graph db was hard
+        \item Trying to set up a publicly accessible version of the site was a pain: I figured out it would be quicker to use Play and Heroku, porting over any old functionality I could reuse: Changes in model made it worth it
+        \item The first stack could be seen as a waste of time, but I really needed to learn new stuff, so I've taken it as a learning experience.
+      }
 
   \section{Results}
+    \todo{
+      \item Created a way to view a graph
+      \item Graph can be edited only through external tools
+      \item Didn't implement the basic operations (I managed to for the old model, but that became obsolete so it was dropped)
+      \item Overall I feel the software implementation was functionally a failure, though personally, I gained a lot of experience from it: It wasn't a waste, but if I went back I'd have focussed heavily on the model and spent my time on constructing tests of that.
+    }
+
   \section{Lessons Learned}
+    \todo{
+      \item Should have had a learning period dedicated to learning tools and techniques for web dev: Should have expected not to produce anything for a while, just run through tutorials making test sites. Would have been less stressed and unhappy about progress: Would probably have had more energy to work: Stress made me sour to the work
+      \item Should have focussed more heavily on the model and testing that. Late but necessary changes to the model made some work invalid. The software I produced should only have become the focus once I had a solid model to test.
+      \item Perhaps a graph viewing tool would have been more useful as implementations already exist, just not a recorded structure. I was too focussed on producing a useful tool when I should have realised the model itself was useful and a prerequisite or the tools
+      \item I felt as though I had to produce a peice of software: Clearly this was a mistake on my part.
+    }
