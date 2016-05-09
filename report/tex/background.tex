@@ -4,7 +4,7 @@
 
   \section{The Learning Process}
     \label{section:learning_process}
-    Regardless of how it is implemented, a working learning process needs the following features:
+    Before reviewing existing educational practices, it's worth identifying the main problems that any educational system must deal with. Regardless of how it is implemented, a working learning process needs the following features:
 
     \begin{enumerate}
       \item A way of selecting goals: Somehow we must decide what it is we want to learn.
@@ -20,7 +20,16 @@
 
     I will use this framework in my review of the current educational practices.
 
+    Although I'm primarily concerned with existing knowledge in this report, it is worth noting how research (generating new knowledge) fits into the above framework. The researching process is essentially identical to the learning process: The key difference is that researchers must learn new knowledge on their own, without the assistance of teachers and learning resources.
+
+    It's also worth noting the importance of integrating research into an education system. Unless research eventually becomes integrated, the value of that new knowledge is greatly diminished: Others will not be able yo apply the new knowledge unless they replicate the research themselves.
+
   \section{Existing Work}
+    \todo{
+      \item Quite general frameworks: Talk about knowledge, wisdom etc
+      \item Quite vague: e.g. Bloom's taxonomy has been rearranged and exactly what goes into each category is unclear or debated
+    }
+
     \subsection{Bloom's Taxonomy}
     \subsection{Constructivist Theory}
     \todo{
@@ -32,24 +41,34 @@
     Following the framework explained in section \ref{section:learning_process}, I'll be reviewing a number of practices currently used in education. This is not an exhaustive review. I will also discuss the concerns of each part of the framework in a little more detail.
 
     \subsection{Selecting Goals}
+      The first task on any educational system is to select appropriate goals. There is little point expending energy trying to teach things which are not useful to students. To make the most efficient use of available resources, only the most valuable concepts to students should be taught.
+
       Goal selection in a formal educational system is difficult: It requires that you have accurate knowledge of the distribution of skills being used in industry. If you wish to be more accurate, then you must also predict how the skills required in industry will change by the time a student begins work. On top of industry related skills, you must analyse common skills that would benefit students outside of their work.
 
+      Another issue with selecting goals is that you must have some structural information about what you could teach in order to identify specific skills. If you could only identify high level divisions between subjects (e.g. Maths, Science, English) then your selection of goals can only use those divisions. You might choose to teach \emph{Maths} as your goal, which could include elements of \emph{Maths} that aren't actually that useful. If instead you can identify lower level distinctions, such as between \emph{Trigonometry} and \emph{Circle Theorems}, then you will be more able to select the optimum set of concepts to teach.
+
+      Goals can also be time-dependent. Humans often forget information that they do not use. This makes it more efficient to teach people skills closer to the time they will be used. In fact, by teaching people just in time, a lot of tedious memorization exercises could be avoided. If a student looks up information often enough, they are likely to remember it. It is quite natural for people to switch from using references to recalling commonly used information when they are actually practicing their skills.
+
+      Some of the choices of topics covered in schools seem questionable. For example, I recall being tested on my ability to anaylse poetry in a GCSE exam. This is clearly not a widely used skill, and yet it was non-optional. Shakespeare was also studied, but unfortunately this was not preceded by any study of the culture or language of the time, which made it difficult for many people to really understand the details without explicitly being told about them. This suggests problems in the area of goal selection; Pre-requisites must be scheduled before the knowledge that depends on them.
+
+      I am not aware of any systematic and publicly accessible attempts to identify the structure of our combined knowledge or relevant meta-data: For example, how much time it takes on average to learn specific things using specific methods, or the value of any given concepts to students. We need to name skills to a low level of granularity, and we need to study the relevance of these skills to real-life tasks.
+
       \todo{
-        \item There are a number of choices over what to learn that do not seem to make very much sense: Why make everyone study Shakespeare? What about specialist subjects that are not optional? Why is critical thinking not part of the core curriculum? Why are widely useful software engineering skills left until third year, yet group project work is done predominantely in the first and second years?
+        \item High level decisions (National Curriculum) vs low level decisions (What should students be learning today): Low level done poorly as students are often expected to learn things they don't understand the prerequisites for.
 
-        \item Selecting goals is difficult: It requires knowledge of the distribution of skills being used in industry. It also requires sufficient structural information about knowledge to distinguish skills from each other and teach them in isolation.
-
-        \item What we really need is data: How is our current knowledge structured, and how many people use individual skills (and in which professions).
-
-        \item Timing is important: JIT learning will lower the amount of knowledge that is forgotten: Use it or lose it! If you learn too soon you won't be using that knowledge. If you're not using the knowledge, you have to put in additional effort memorising for tests.
+        \item How is, say, the National Curriculum designed? How did they select their goals?
       }
 
     \subsection{Student Motivation}
+      Student motivation is easily overlooked among the other parts of the learning process, however it is just as critical as the other parts. Unmotivated students will not learn effectively: A considerable amount of the effort required in educating people comes from the students.
+
+      Students are often not provided with a clear explanation of why they should study a given topic. Many people in my secondary school classes wondered why they were being taught to analyse poetry, but no clear answers were provided. When students felt their time was being wasted, they tended to lose motivation and become distracted. Ideally, every skill taught should be clearly justified for any student who wishes to know why they are learning it.
+
+      Inappropriately selected goals have a strong impact on motivation. If goal selection is done poorly, then the reality is that students will be being taught skills that are not genuinely valuable to them. These choices cannot be justified, so they will necessarily reduce student motivation and their confidence in the system.
+
+      Motivation relies heavily on successful goal selection. The same kind of data necessary for systematically making good choices about what to teach would also provide a clear justification of any choices to students.
+
       \todo{
-        \item Inappropriately selected goals lead to disillusioned students: They know what they are doing isn't practically useful. Their performance is decreased unless they are exceptional \emph{grinders}.
-
-        \item Motivation seems to be often forgotten. Not much effort is made to show how lessons are of practical value to students. It would be good if every skill could be linked to real examples: This is the essence of \emph{roles}.
-
         \item Some courses attempt to motivate students through real-life examples. This has mixed results: Sometimes the examples are not realistic, other times they are realistic but inapproriate to the student's goals (maths may be useful for a scientist, but maybe the student is hoping to work in textiles: They must know that maths is useful in their area of interest).
       }
 
@@ -90,15 +109,53 @@
         }
 
     \subsection{Testing}
-      \todo{
-        \item Group testing is meaningless outside of that group (can't isolate individual performance, group will be disbanded soon, eliminating utility of test)
+      Testing is the only way to ensure that any attempt to learn was successful. It is also helpful when trying to resolve a student's difficulties as it can provide information about where problems are.
 
-        \item Lots of tests collapse information into a single score: Detail is lost, utility is compromised. A single percentage score cannot tell you whether a student undestands A, B, C, AB, AC, BC, or nothing completely. Only a 100\% or 0\% score tells you anything concrete about their actual knowledge. Testing multiple variables with one score makes no sense! Tests need to be designed with utility in mind: Who is going to use the test score and what does it reliably tell them?
+      \subsubsection{Ambiguous Grading}
+        It is very common practice to perform end of term and end of year tests. Students are often assigned a percentage score, which at some levels of education is associated with a letter grading. Such a grading scheme is inadequate for representing information that would be extremely useful to employers, students and other educators.
 
-        \item Lots of tests are game-able: Answers can be memorized and there are numerous examples of lots of time being dedicated to preparing for specific exam techniques and model answers in my education. The tests can't reliably seperate those who fully understand the questions, and those who \emph{grind}.
+        Consider a subject \(S\) that consists of three concepts: \(\{A, B, C\}\). The set of concepts the student understands is represented by \(U \subset S\). A student takes an exam on the subject to determine what they understand. Let's represent the mark \(m\) as an integer from 0 to 3. To simplify things we'll assume the concepts are atomic, e.g. you can't understand 50\% of \(A\). Let us also assume the test is accurate.
 
-        \item Many tests only test a portion of a course. Why put something on a course if you are not going to check that it has been learened? That's much like adding features to a program but never writing tests for them. Who knows if your work was worth it?
-      }
+        There are three cases to consider:
+
+        \begin{enumerate}
+          \item \(m = 0\)
+          \item \(m = 3\)
+          \item \(0 < m < 3\)
+        \end{enumerate}
+
+        In case 1, \(U = \{\}\), the student understands nothing. In case 2, \(U = \{A, B, C\} = S\), the student understands everything. In case 3, it is ambiguous which set of concepts the student understands: If \(m = 2\), does this mean \(U = \{A, B\}\), \(U = \{B, C\}\) or \(U = \{A, C\}\)? You cannot determine exactly what a student knows just from a single number.\footnote{An exception to this is if you know that \(A\) is a pre-requisite for \(B\) and \(B\) is a prerequisite for \(C\), in which case \(m = 2 \iff U = \{A, B\}\). Although this is kind of cheating, because you're using external knolwedge about the structure of the subject's concepts.}
+
+        It would be much better if test results consisted of a list of understood concepts. Whether a concept is understood is binary, leaving no ambiguity over what a student actually knows. Imagine trying to organise a course that relies on a student with \(0 < m < 3\) knowing \(A\): You can't look at their past results to determine whether a catch-up period needs to be scheduled. You must re-tests them specifically on \(A\) just to make sure. It would also be difficult for an employer to determine if a student has the necessary skills for a job unless that particular role lines up perfectly with the structure of a course. Without accurate and unambiguous testing it is hard to make planning decisions.
+
+      \subsubsection{Grade Scaling}
+        \todo{
+          \item Relative marks for a given year
+          \item Not really useful for anyone in any practical way: You can say you were the best that year, but who cares if your year was bad
+          \item Really unhelpful if you want to measure the long term performance of the actual school
+          \item Scaling implies an inconsistent standard. its existence implies serious problems in the way testing is done: Imagine scaling unit tests! Madness!
+        }
+
+      \subsubsection{Subjective Grading}
+        \todo{
+          \item Common in art
+          \item Provides no reliable information about student skills
+          \item Beleived to be necessary in some subjects, but this doesn't appear to be true: Ask the question: What do we actually care about art students being able to do?
+        }
+
+      \subsubsection{Exam Technique}
+        \todo{
+          \item Lots of tests are game-able: Answers can be memorized and there are numerous examples of lots of time being dedicated to preparing for specific exam techniques and model answers in my education. The tests can't reliably seperate those who fully understand the questions, and those who \emph{grind}.
+
+          \item Many tests only test a portion of a course. Why put something on a course if you are not going to check that it has been learned? That's much like adding features to a program but never writing tests for them. Who knows if your work was worth it?
+
+          \item Tests should test edge-cases. Many tests avoid difficult questions. People complain about \'unfair\' questions.
+        }
+
+      \subsubsection{Group Testing}
+        \todo{
+          \item Group testing is meaningless outside of that group (can't isolate individual performance, group will be disbanded soon, eliminating utility of test)
+        }
 
     \subsection{Handling Failed Tests}
       \todo{
@@ -107,4 +164,12 @@
         \item Review is far less common than it should be! Kind of crippled because of the lack of accuracy of many tests: What is the actual problem? Unclear.
 
         \item Failure to adapt teaching schedule to match students: If you're stuck on something, regular lessons will continue without you, and it's worthless going to something that relies on the problem area. Catch up gets more expensive the longer it is left.
+      }
+
+    \subsection{Research}
+      \todo{
+        \item Research currently takes a lot of time to enter the education system
+        \item Rely heavily on textbooks and custom university courses
+        \item Papers are often difficult to find a path to understanding them
+        \item There are usually no tests to confirm that a reader of research understood it
       }
