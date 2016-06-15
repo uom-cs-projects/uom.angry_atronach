@@ -22,7 +22,7 @@
 
     Although I'm primarily concerned with existing knowledge in this report, it is worth noting how research (generating new knowledge) fits into the above framework. The researching process is essentially identical to the learning process: The key difference is that researchers must learn new knowledge on their own, without the assistance of teachers and learning resources.
 
-    It's also worth noting the importance of integrating research into an education system. Unless research eventually becomes integrated, the value of that new knowledge is greatly diminished: Others will not be able yo apply the new knowledge unless they replicate the research themselves.
+    It's also worth noting the importance of integrating research into an education system. Unless research eventually becomes integrated, the value of that new knowledge is greatly diminished: Knowledge that cannot be found or is too difficult to understand will need to be replicated.
 
   \section{Existing Work}
     \todo{
@@ -31,10 +31,12 @@
     }
 
     \subsection{Bloom's Taxonomy}
-    \subsection{Constructivist Theory}
+    \subsection{The National Curriculum}
     \todo{
       \item Bloom's Taxonomy
       \item Constructivist Theory
+      \item NC Fourth Report of Session 2008–09 (http://www.educationengland.org.uk/documents/pdfs/2009-CSFC-national-curriculum.pdf)
+      \item Task Group on Assessment and Testing (http://www.educationengland.org.uk/documents/pdfs/1988-TGAT-report.pdf)
     }
 
   \section{Review of Current Practices}
@@ -49,12 +51,12 @@
 
       Goals can also be time-dependent. Humans often forget information that they do not use. This makes it more efficient to teach people skills closer to the time they will be used. In fact, by teaching people just in time, a lot of tedious memorization exercises could be avoided. If a student looks up information often enough, they are likely to remember it. It is quite natural for people to switch from using references to recalling commonly used information when they are actually practicing their skills.
 
-      Some of the choices of topics covered in schools seem questionable. For example, I recall being tested on my ability to anaylse poetry in a GCSE exam. This is clearly not a widely used skill, and yet it was non-optional. Shakespeare was also studied, but unfortunately this was not preceded by any study of the culture or language of the time, which made it difficult for many people to really understand the details without explicitly being told about them. This suggests problems in the area of goal selection; Pre-requisites must be scheduled before the knowledge that depends on them.
+      Some of the choices of topics covered in schools seem questionable. For example, I recall being tested on my ability to analyse poetry in a GCSE exam. This is clearly not a widely used skill, and yet it was non-optional. Shakespeare was also studied, but unfortunately this was not preceded by any study of the culture or language of the time, which made it difficult for many people to really understand the details without explicitly being told about them. This suggests problems in the area of goal selection; Pre-requisites must be scheduled before the knowledge that depends on them.
 
       I am not aware of any systematic and publicly accessible attempts to identify the structure of our combined knowledge or relevant meta-data: For example, how much time it takes on average to learn specific things using specific methods, or the value of any given concepts to students. We need to name skills to a low level of granularity, and we need to study the relevance of these skills to real-life tasks.
 
       \todo{
-        \item High level decisions (National Curriculum) vs low level decisions (What should students be learning today): Low level done poorly as students are often expected to learn things they don't understand the prerequisites for.
+        \item High level decisions (National Curriculum) vs low level decisions (What should students be learning today): Low level done poorly as students are often expected to learn things they don't understand the prerequisites for. High level also has problems: Why drama?
 
         \item How is, say, the National Curriculum designed? How did they select their goals?
       }
@@ -70,12 +72,17 @@
 
       \todo{
         \item Some courses attempt to motivate students through real-life examples. This has mixed results: Sometimes the examples are not realistic, other times they are realistic but inapproriate to the student's goals (maths may be useful for a scientist, but maybe the student is hoping to work in textiles: They must know that maths is useful in their area of interest).
+
+        \item Effects of poor testing/lack of feedback on motivation: No sense of progression.
+
+        \item Effects of monolithic testing on motivation: Demotivating, stressful. Failure is a big deal.
       }
 
     \subsection{Knowledge Acquisition}
       \todo{
         \item Mention how shallow this review goes (not exhaustive)
         \item There are many methods used to communicate and receive knowledge: Many are modifications or combinations of others so review a few
+        \item Mention how traditional classrooms are often a mix of the methods used in university. Still mostly lecturing. Maybe add a section for repetative practice? Do ten identical questions then mark them? Why not do one, mark one, review, improve?
       }
 
       \subsubsection{Lectures}
@@ -100,21 +107,27 @@
         \todo{
           \item Flexible: No time pressure
           \item Often there is an attempt to describe which chapters are necessary and which are optional: Clearly there is dependency between concepts
-          \item Writing styles vary: Some books are very easy to follow, others are hard: Why is this?
+          \item Writing styles vary: Some books are very easy to follow, others are hard: Why is this? (Mention low level application of model later)
           \item Within a textbook, things are neatly structured and consistent
           \item Things break down when you start asking what knowledge you need going into the book
           \item There's usually either overlap between textbooks, or gaps that aren't easy to fill
           \item Textbooks are not exhaustive in their pre-requisites: Sometimes you may get a book that mentions GCSEs or A levels, but given how fuzzy those qualifications are for determining exact knowledge, there will be overlap, or missing knowledge
           \item Many courses do not use textbooks as there are none that suitably cover the relevant material: Lecturers make their own custom selections of topics
+          \item Accessibility issues for printed textbooks, but with an electronic copy you can use a screen-reader.
         }
 
     \subsection{Testing}
-      Testing is the only way to ensure that any attempt to learn was successful. It is also helpful when trying to resolve a student's difficulties as it can provide information about where problems are.
+      Testing is the only way to ensure that any attempt to learn was successful. It is also helpful when trying to resolve a student's difficulties as it can provide information about where problems are and possibly what kind of problems are being experienced.
+
+      \todo{
+        \item Repeatability of tests.
+        \item Mention Dunning-Kruger: For self study, objective tests are needed or learners may develop false confidence
+      }
 
       \subsubsection{Ambiguous Grading}
         It is very common practice to perform end of term and end of year tests. Students are often assigned a percentage score, which at some levels of education is associated with a letter grading. Such a grading scheme is inadequate for representing information that would be extremely useful to employers, students and other educators.
 
-        Consider a subject \(S\) that consists of three concepts: \(\{A, B, C\}\). The set of concepts the student understands is represented by \(U \subset S\). A student takes an exam on the subject to determine what they understand. Let's represent the mark \(m\) as an integer from 0 to 3. To simplify things we'll assume the concepts are atomic, e.g. you can't understand 50\% of \(A\). Let us also assume the test is accurate.
+        Consider a subject \(S\) that consists of three concepts: \(\{A, B, C\}\). The set of concepts the student understands is represented by \(U \subseteq S\). A student takes an exam on the subject to determine what they understand. Let's represent the mark \(m\) as an integer from 0 to 3. To simplify things we'll assume the concepts are atomic, e.g. you can't understand 50\% of \(A\). Let us also assume the test is accurate.
 
         There are three cases to consider:
 
@@ -126,7 +139,13 @@
 
         In case 1, \(U = \{\}\), the student understands nothing. In case 2, \(U = \{A, B, C\} = S\), the student understands everything. In case 3, it is ambiguous which set of concepts the student understands: If \(m = 2\), does this mean \(U = \{A, B\}\), \(U = \{B, C\}\) or \(U = \{A, C\}\)? You cannot determine exactly what a student knows just from a single number.\footnote{An exception to this is if you know that \(A\) is a pre-requisite for \(B\) and \(B\) is a prerequisite for \(C\), in which case \(m = 2 \iff U = \{A, B\}\). Although this is kind of cheating, because you're using external knolwedge about the structure of the subject's concepts.}
 
-        It would be much better if test results consisted of a list of understood concepts. Whether a concept is understood is binary, leaving no ambiguity over what a student actually knows. Imagine trying to organise a course that relies on a student with \(0 < m < 3\) knowing \(A\): You can't look at their past results to determine whether a catch-up period needs to be scheduled. You must re-tests them specifically on \(A\) just to make sure. It would also be difficult for an employer to determine if a student has the necessary skills for a job unless that particular role lines up perfectly with the structure of a course. Without accurate and unambiguous testing it is hard to make planning decisions.
+        It would be much better if test results consisted of a list of understood concepts. Whether a concept is understood is binary, leaving no ambiguity over what a student actually knows. Imagine trying to organise a course that relies on a student with \(0 < m < 3\) knowing \(A\): You can't look at their past results to determine whether a catch-up period needs to be scheduled. You must re-test them specifically on \(A\) just to make sure. It would also be difficult for an employer to determine if a student has the necessary skills for a job unless that particular role lines up perfectly with the structure of a course. Without accurate and unambiguous testing it is hard to make planning decisions.
+
+        \todo{
+          \item Get feedback on possible criticisms: Address criticisms. e.g. Numerical grading is easier: What do people think the utility is?
+
+          \item Romantic Testing: Mention similarity to the Semantic Versioning scheme: We should have detailed \emph{changelogs} describing what people have actually learned. If we have percentage scores, they should be a summary of the more detailed logs, not the thing we rely on to determine compatibility.
+        }
 
       \subsubsection{Grade Scaling}
         \todo{
@@ -139,7 +158,7 @@
       \subsubsection{Subjective Grading}
         \todo{
           \item Common in art
-          \item Provides no reliable information about student skills
+          \item Provides information of questionable reliability about student skills
           \item Beleived to be necessary in some subjects, but this doesn't appear to be true: Ask the question: What do we actually care about art students being able to do?
         }
 
@@ -149,12 +168,14 @@
 
           \item Many tests only test a portion of a course. Why put something on a course if you are not going to check that it has been learned? That's much like adding features to a program but never writing tests for them. Who knows if your work was worth it?
 
-          \item Tests should test edge-cases. Many tests avoid difficult questions. People complain about \'unfair\' questions.
+          \item Tests should test edge-cases. Many tests avoid difficult questions. People complain about `unfair` questions.
         }
 
       \subsubsection{Group Testing}
         \todo{
-          \item Group testing is meaningless outside of that group (can't isolate individual performance, group will be disbanded soon, eliminating utility of test)
+          \item Group testing is meaningless outside of that group (can't isolate individual performance without either subjective grading or a large sample size of varying groups, group will be disbanded soon, eliminating utility of test)
+          \item Fairly assigning grades to members is hard, especially with non-participating members: Does anyone really report them? How can you accurately judge each member's contribution? Why can't the skills being tested be judged in individual tests?
+          \item If trying to test group working skills, perhaps we need to design test specifically for group related skills without confounding the test by mixing it with other skills being used.
         }
 
     \subsection{Handling Failed Tests}
@@ -163,7 +184,7 @@
 
         \item Review is far less common than it should be! Kind of crippled because of the lack of accuracy of many tests: What is the actual problem? Unclear.
 
-        \item Failure to adapt teaching schedule to match students: If you're stuck on something, regular lessons will continue without you, and it's worthless going to something that relies on the problem area. Catch up gets more expensive the longer it is left.
+        \item Failure to adapt teaching schedule to match students: If you're stuck on something, regular lessons will continue without you, and it's worthless going to something that relies on the problem area. Catch up gets more expensive the longer it is left. The cost is partially due to the expensive real-time teaching methods being used.
       }
 
     \subsection{Research}
