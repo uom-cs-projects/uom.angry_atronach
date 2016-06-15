@@ -75,7 +75,7 @@
 
       Certain teaching methods can also be demotivating. For example, the ease with which a student can fall behind in a lecture (discussed in section \ref{section:lectures}) makes it very easy to be left feeling lost.
 
-      Testing is also important to motivation. Testing is often viewed as something that students find unpleasant, however, properly designed tests actually improve student motivation. Without feedback, students will not have a sense of progress. Students need clear and acheivable short-term objectives.\cite{tgat_14}
+      Testing is also important to motivation. Testing is often viewed as something that students find unpleasant, however, properly designed tests actually improve student motivation. Without feedback, students will not have a sense of progress. Students need clear and acheivable short-term objectives.\cite[pa.~14]{tgat}
 
       The current practice of having end of term/year tests may have a detrimental impact on motivation as these tests are certainly not acheivable in the short term. With the measurement of success over a long period of time riding on a single exam, it seems likely they will be very stressful events. Failing or missing one of these tests will greatly demotivate students.
 
@@ -117,14 +117,20 @@
     \subsection{Testing}
       Testing is the only way to ensure that any attempt to learn was successful. It is also helpful when trying to resolve a student's difficulties as it can provide information about where problems are and possibly what kind of problems are being experienced.
 
-      \todo{
-        \item Repeatability of tests.
-        \item Lack of anonymous testing: Recorded gender bias. Testing needs to be objective!
-        \item Mention Dunning-Kruger: For self study, objective tests are needed or learners may develop false confidence
-        \item Do as soon as possible: Less revision (redoing work), less stressful exams.
-      }
+      Tests are particularly important for self-study. Unless a student has reliable and objective tests, they may develop false confidence in their abilities. False confidence may lead to a student stopping short of actually learning something important. Undetected problems may make progress in related areas impossible. The Dunning-Kruger effect shows that relatively unskilled people are more likely to overestimate their abilities.\cite{dunning_kruger} If we wish to make self-study a feasible option to many of the least skilled students (the ones who are in most need of educational opportunities), then having easily accessible and reliable diagnostic tests are crucial.
 
-      \subsubsection{Ambiguous Grading}
+      \subsubsection{Diagnostic and Certification Testing}
+        Testing can be used both for diagnostic purposes and for certification. Ideally the tests for both should be as similar as possible to ensure that a person who can pass a diagnostic test will also pass a certification test. Of course, certification tests must be resistant to cheating, so they may need to be created in private (to stop students memorizing answers) and run under special conditions (e.g. in an exam room to stop collaboration). Diagnostic tests do not need to resist cheating, as it is in a students interests to take diagnostic tests correctly.
+
+        Certification should not be attempted until a student can pass the associated diagnostic tests. This will minimize the number of resits. The extra considerations for running certification tests make them more costly than diagnostic tests.
+
+        Currently, many tests are scheduled in a regular fashion that is not tied to the progress of individual students. If a student isn't ready by the time a scheduled test occurs, then they must wait a great deal of time for a resit, or they may even fail their course. This is not ideal considering that there are many factors that could affect a student's readiness for an exam. It is also not ideal as this puts some students under considerable pressure to meet potentially unrealistic deadlines.
+
+        In order to prevent major problems, tests scheduled without regards to individual progress must allow ample time for students to be capable of passing. If students are ready for the test early, then there is a risk that they will forget information before the exam happens, requiring additional revision. When to schedule exams becomes a tradeoff between ensuring as many people are ready as possible, and avoiding the inefficiency of having students sitting around waiting or doing extra work to revise.
+
+        It would be beneficial for students if certification testing could be done as close to on-demand as possible.
+
+      \subsubsection{Aggregated Scoring}
         It is very common practice to perform end of term and end of year tests. Students are often assigned a percentage score, which at some levels of education is associated with a letter grading. Such a grading scheme is inadequate for representing information that would be extremely useful to employers, students and other educators.
 
         Consider a subject \(S\) that consists of three concepts: \(\{A, B, C\}\). The set of concepts the student understands is represented by \(U \subseteq S\). A student takes an exam on the subject to determine what they understand. Let's represent the mark \(m\) as an integer from 0 to 3. To simplify things we'll assume the concepts are atomic, e.g. you can't understand 50\% of \(A\). Let us also assume the test is accurate.
@@ -141,10 +147,11 @@
 
         It would be much better if test results consisted of a list of understood concepts. Whether a concept is understood is binary, leaving no ambiguity over what a student actually knows. Imagine trying to organise a course that relies on a student with \(0 < m < 3\) knowing \(A\): You can't look at their past results to determine whether a catch-up period needs to be scheduled. You must re-test them specifically on \(A\) just to make sure. It would also be difficult for an employer to determine if a student has the necessary skills for a job unless that particular role lines up perfectly with the structure of a course. Without accurate and unambiguous testing it is hard to make planning decisions.
 
-        \todo{
-          \item Get feedback on possible criticisms: Address criticisms. e.g. Numerical grading is easier: What do people think the utility is?
+        Aggregate scoring may be useful as a measure of general progress, but it would be wise not to discard precise information on what a student understands. Aggregate scoring should only be used in summaries.
 
-          \item Romantic Testing: Mention similarity to the Semantic Versioning scheme: We should have detailed \emph{changelogs} describing what people have actually learned. If we have percentage scores, they should be a summary of the more detailed logs, not the thing we rely on to determine compatibility.
+        \todo{
+          \item Rewrite
+          \item Mention that this is noted in TGAT.\cite[pa.~25]{tgat}
         }
 
       \subsubsection{Grade Scaling}
@@ -160,6 +167,7 @@
           \item Common in art
           \item Provides information of questionable reliability about student skills
           \item Beleived to be necessary in some subjects, but this doesn't appear to be true: Ask the question: What do we actually care about art students being able to do?
+          \item Some tests rely on the discrimination of the tester: This is certainly problematic. Experiments show that there is significant gender bias. Tests need to be anonymous.
         }
 
       \subsubsection{Exam Technique}
