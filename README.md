@@ -1,4 +1,4 @@
-# angry-atronach
+# Angry Atronach
 
 Third year project.
 
